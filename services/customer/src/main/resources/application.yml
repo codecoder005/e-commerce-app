@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: customer-service
+  config:
+    import: optional:configserver:http://localhost:8888
+
+## Spring Boot actuator endpoints
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+  endpoint:
+    health:
+      group:
+        custom:
+          showComponents: always
+          showDetails: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
